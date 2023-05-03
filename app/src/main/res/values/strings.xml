@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CurrenSee</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="logo">logo</string>
+    <string name="register_an_account">Register an account:</string>
+    <string name="e_mail_address">E-mail Address</string>
+    <string name="password_confirmation">Password Confirmation</string>
+    <string name="register">Register</string>
+</resources>
