@@ -9,7 +9,7 @@
     <ScrollView
         android:id="@+id/login_scrollview"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.858"
@@ -19,39 +19,48 @@
 
 
         <LinearLayout
-            android:id="@+id/register_layout"
+            android:id="@+id/login_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/username_field"
+                android:id="@+id/email_field"
                 style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="86dp"
-                android:hint="@string/username"
-                android:autofillHints="username"
-                android:inputType="textPersonName" />
+                android:autofillHints="emailAddress"
+                android:hint="@string/e_mail_address"
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/password_field"
                 android:layout_width="match_parent"
                 android:layout_height="83dp"
+                android:autofillHints="password"
                 android:hint="@string/password"
-                android:inputType="textPassword"
-                android:autofillHints="password" />
+                android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/register_button"
+                android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="48dp"
-                android:text="@string/login" />
+                android:onClick="logInWithEmail"
+                android:text="@string/log_in_with_email" />
+
+            <Button
+                android:id="@+id/login_google_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="logInWithGoogle"
+                android:text="@string/log_in_with_google" />
+
+            <Button
+                android:id="@+id/go_register_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="goRegister"
+                android:text="@string/register" />
 
         </LinearLayout>
 

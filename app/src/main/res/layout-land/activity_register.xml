@@ -38,16 +38,12 @@
                 android:id="@+id/username_field"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:hint="@string/username"
-                android:autofillHints="username"
-                android:inputType="textPersonName" />
+                android:hint="@string/username" />
 
             <EditText
                 android:id="@+id/email_field"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
                 android:hint="@string/e_mail_address"
                 android:autofillHints="emailAddress"
                 android:inputType="textEmailAddress" />
@@ -56,7 +52,6 @@
                 android:id="@+id/password_field"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:autofillHints="password" />
@@ -65,7 +60,6 @@
                 android:id="@+id/password_field2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
                 android:hint="@string/password_confirmation"
                 android:inputType="textPassword"
                 android:autofillHints="password" />

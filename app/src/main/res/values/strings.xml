@@ -8,4 +8,6 @@
     <string name="e_mail_address">E-mail Address</string>
     <string name="password_confirmation">Password Confirmation</string>
     <string name="register">Register</string>
+    <string name="log_in_with_email">Log in with email</string>
+    <string name="log_in_with_google">Log in with Google</string>
 </resources>
