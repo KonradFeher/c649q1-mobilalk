@@ -10,4 +10,64 @@
     <string name="register">Register</string>
     <string name="log_in_with_email">Log in with email</string>
     <string name="log_in_with_google">Log in with Google</string>
+    <string name="currency_full_name_ph">Currency Full Name</string>
+    <string name="abbreviation_ph">XMP</string>
+    <string name="symbol_ph">X</string>
+    <string name="value_ph">1.23</string>
+    <string name="updated_ph">YYYY-MM-DD</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+
+
+    <string-array name="currency_names">
+        <item>United States Dollars</item>
+        <item>British Pound Sterling</item>
+        <item>Euros</item>
+        <item>Hungarian Forints</item>
+        <item>Serbian Dinars</item>
+        <item>Canadian Dollars</item>
+        <item>Romanian Leu</item>
+        <item>Swedish Crowns</item>
+        <item>Swiss Francs</item>
+        <item>Russian Rubles</item>
+    </string-array>
+
+    <string-array name="currency_abbreviations">
+        <item>USD</item>
+        <item>GBP</item>
+        <item>EUR</item>
+        <item>HUF</item>
+        <item>RSD</item>
+        <item>CAD</item>
+        <item>RON</item>
+        <item>SEK</item>
+        <item>CHF</item>
+        <item>RUB</item>
+    </string-array>
+
+    <string-array name="currency_symbols">
+        <item>$</item>
+        <item>£</item>
+        <item>€</item>
+        <item>Ft</item>
+        <item>DIN</item>
+        <item>$</item>
+        <item>Lei</item>
+        <item>kr</item>
+        <item>Fr</item>
+        <item>₽</item>
+    </string-array>
+
+    <array name="currency_values">
+        <item>0.89</item>
+        <item>1.13</item>
+        <item>1.0</item>
+        <item>0.0026</item>
+        <item>0.0084</item>
+        <item>0.66</item>
+        <item>0.20</item>
+        <item>0.087</item>
+        <item>0.99</item>
+        <item>0.011</item>
+    </array>
 </resources>

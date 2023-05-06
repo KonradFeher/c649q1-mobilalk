@@ -18,4 +18,7 @@
     <color name="light_calm_blue">#3A85CA</color>
     <color name="light_calm_blue_dark">#2E5F8B</color>
 
+    <color name="accent">#7C1280</color>
+    <color name="note">#BBBBBB</color>
+    <color name="red">#EE4444</color>
 </resources>
