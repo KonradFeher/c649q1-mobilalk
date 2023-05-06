@@ -120,7 +120,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
             fullNameText.setText(curr.getFullName());
             abbreviationText.setText(curr.getAbbreviation());
             symbolText.setText(curr.getSymbol());
-            valueText.setText("100 EUR = " + String.format(Locale.ROOT, "%.2f ", curr.getRelativeValue() * 100) + curr.getAbbreviation());
+            valueText.setText("1 " + curr.getAbbreviation() + " = " + String.format(Locale.ROOT, "%.2f ", curr.getRelativeValue()) + "EUR");
             updatedAtText.setText(new SimpleDateFormat("HH:mm MM-dd", Locale.ROOT).format(curr.getUpdatedAt()));
         }
     }
