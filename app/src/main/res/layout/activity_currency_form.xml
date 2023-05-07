@@ -36,7 +36,7 @@
         android:layout_below="@+id/abbreviation_text_view"
         android:hint="@string/exp"
         android:importantForAutofill="no"
-        android:inputType="text" />
+        android:inputType="textCapCharacters" />
 
     <TextView
         android:id="@+id/symbol_text_view"
@@ -53,7 +53,7 @@
         android:layout_below="@+id/symbol_text_view"
         android:hint="@string/example_symbol"
         android:importantForAutofill="no"
-        android:inputType="textCapCharacters" />
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/value_text_view"

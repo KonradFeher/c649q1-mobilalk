@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -39,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        View rootView = findViewById(R.id.login_page);
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        rootView.startAnimation(fadeInAnimation);
+
         auth = FirebaseAuth.getInstance();
 
         emailField = findViewById(R.id.email_field);
@@ -52,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         gsi = GoogleSignIn.getClient(this, gso);
     }
-    
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

@@ -45,7 +45,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
         holder.bindTo(current);
 
         if(holder.getAdapterPosition() > lastPosition) {
-            Animation animation = AnimationUtils.loadAnimation(context, R.anim.fade_in);
+            Animation animation = AnimationUtils.loadAnimation(context, R.anim.scroll_in);
             holder.itemView.startAnimation(animation);
             lastPosition = holder.getAdapterPosition();
         }

@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +37,7 @@ public class CurrencyFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency_form);
+        setTitle("New Currency");
 
         fullNameEditText = findViewById(R.id.full_name_edit_text);
         abbreviationEditText = findViewById(R.id.abbreviation_edit_text);
@@ -48,9 +50,11 @@ public class CurrencyFormActivity extends AppCompatActivity {
 
         // check if we're editing an existing currency or creating a new one
         currencyToEdit = (Currency) getIntent().getSerializableExtra("currency");
-        currencyToEditAbbr = currencyToEdit.getAbbreviation();
         isEditing = currencyToEdit != null;
         if (isEditing) {
+            setTitle("Edit Currency");
+            currencyToEditAbbr = currencyToEdit.getAbbreviation();
+            ((TextView)findViewById(R.id.value_text_view)).setText("Value (1 " + currencyToEditAbbr + " in EUR)");
             fullNameEditText.setText(currencyToEdit.getFullName());
             abbreviationEditText.setText(currencyToEdit.getAbbreviation());
             symbolEditText.setText(currencyToEdit.getSymbol());

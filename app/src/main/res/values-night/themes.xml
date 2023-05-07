@@ -1,5 +1,5 @@
 <resources>
-    <style name="Theme.CurrenSee" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.CurrenSee" parent="Theme.MaterialComponents.DayNight">
         <item name="android:background">@color/dark_blue</item>
         <item name="android:statusBarColor">@color/dark_blue</item>
         <item name="android:textColor">@android:color/white</item>
@@ -10,5 +10,4 @@
         <item name="colorSecondaryVariant">@color/medium_blue</item>
         <item name="colorOnSecondary">@android:color/white</item>
     </style>
-
 </resources>

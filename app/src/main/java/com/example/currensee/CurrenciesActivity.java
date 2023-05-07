@@ -2,6 +2,7 @@ package com.example.currensee;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +14,12 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -29,7 +36,6 @@ import java.util.List;
 
 public class CurrenciesActivity extends AppCompatActivity {
     private static final String LOG_TAG = CurrenciesActivity.class.getName();
-    private static final int ITEM_LIMIT = 10;
     private FirebaseUser user;
     private FirebaseAuth auth;
     private boolean isPortrait;
@@ -50,6 +56,8 @@ public class CurrenciesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currencies);
+        setTitle("Currencies");
+
         isPortrait = getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -65,12 +73,35 @@ public class CurrenciesActivity extends AppCompatActivity {
 
         firestore = FirebaseFirestore.getInstance();
         collectionRef = firestore.collection("Currencies");
-        queryData();
 
 //        IntentFilter filter = new IntentFilter();
 //        filter.addAction(...);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Log.i(LOG_TAG, "onCreateOptionsMenu: YAHOOOOOOOOOOOO");
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.currencies_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_create:
+                Intent intent = new Intent(this, CurrencyFormActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     private void initializeData() {
         Log.w(LOG_TAG, "INIT DATA");
@@ -95,7 +126,7 @@ public class CurrenciesActivity extends AppCompatActivity {
     @SuppressLint("NotifyDataSetChanged")
     private void queryData() {
         currencies.clear();
-        collectionRef.limit(ITEM_LIMIT).get().addOnSuccessListener(queryDocumentSnapshots -> {
+        collectionRef.get().addOnSuccessListener(queryDocumentSnapshots -> {
             for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                 Currency item = document.toObject(Currency.class);
                 currencies.add(item);
@@ -161,8 +192,9 @@ public class CurrenciesActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
+        // refresh data in recycler
         this.queryData();
     }
 }
