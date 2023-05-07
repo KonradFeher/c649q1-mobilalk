@@ -117,11 +117,33 @@ public class CurrenciesActivity extends AppCompatActivity {
     }
 
 
-    public void editCurrency() {
-        //TODO
+    public void editCurrency(String abbr) {
+        Log.i(LOG_TAG, "editCurrency called for Currency:" + abbr);
     }
 
-    public void deleteCurrency() {
-        //TODO
+    public void deleteCurrency(String abbr) {
+        collectionRef
+                .whereEqualTo("abbreviation", abbr)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                        document.getReference().delete();
+                    }
+                    for (int i = 0; i < currencies.size(); i++) {
+                        if (currencies.get(i).getAbbreviation().equals(abbr)) {
+                            currencies.remove(i);
+                            adapter.notifyItemRemoved(i);
+                            break;
+                        }
+                    }
+                    Log.i(LOG_TAG, "Deleted currency document(s) with abbreviation: " + abbr);
+                })
+                .addOnFailureListener(e -> {
+                    Log.e(LOG_TAG, "Failed to delete currency document with abbreviation: " + abbr, e);
+                    Toast.makeText(this, "An error occurred...", Toast.LENGTH_SHORT).show();
+                });
+        Log.i(LOG_TAG, "deleteCurrency called for Currency:" + abbr);
+
     }
+
 }

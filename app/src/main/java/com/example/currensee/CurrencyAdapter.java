@@ -110,8 +110,8 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
             valueText = itemView.findViewById(R.id.value);
             updatedAtText = itemView.findViewById(R.id.updated_at);
 
-            itemView.findViewById(R.id.edit).setOnClickListener(view -> ((CurrenciesActivity)context).editCurrency());
-            itemView.findViewById(R.id.delete).setOnClickListener(view -> ((CurrenciesActivity)context).deleteCurrency());
+            itemView.findViewById(R.id.edit).setOnClickListener(view -> ((CurrenciesActivity)context).editCurrency(abbreviationText.getText().toString()));
+            itemView.findViewById(R.id.delete).setOnClickListener(view -> ((CurrenciesActivity)context).deleteCurrency(abbreviationText.getText().toString()));
 
         }
 
