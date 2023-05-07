@@ -17,6 +17,17 @@
     <string name="updated_ph">YYYY-MM-DD</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="full_name">Full Name</string>
+    <string name="enter_abbreviation">Enter Abbreviation</string>
+    <string name="abbreviation">Abbreviation</string>
+    <string name="exp">EXP</string>
+    <string name="symbol">Symbol</string>
+    <string name="example_symbol">$</string>
+    <string name="value_1_exp_to_eur">Value (1 EXP to EUR)</string>
+    <string name="enter_value">Enter Value</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 
 
     <string-array name="currency_names">

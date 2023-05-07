@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/full_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/full_name"
+        android:labelFor="@id/full_name_edit_text"
+        />
+
+    <EditText
+        android:id="@+id/full_name_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/full_name_text_view"
+        android:inputType="textCapWords"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:id="@+id/abbreviation_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/full_name_edit_text"
+        android:layout_marginTop="16dp"
+        android:labelFor="@id/abbreviation_edit_text"
+        android:text="@string/abbreviation" />
+
+    <EditText
+        android:id="@+id/abbreviation_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/abbreviation_text_view"
+        android:hint="@string/exp"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/symbol_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/abbreviation_edit_text"
+        android:layout_marginTop="16dp"
+        android:text="@string/symbol" />
+
+    <EditText
+        android:id="@+id/symbol_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/symbol_text_view"
+        android:hint="@string/example_symbol"
+        android:importantForAutofill="no"
+        android:inputType="textCapCharacters" />
+
+    <TextView
+        android:id="@+id/value_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/symbol_edit_text"
+        android:layout_marginTop="16dp"
+        android:text="@string/value_1_exp_to_eur" />
+
+    <EditText
+        android:id="@+id/value_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/value_text_view"
+        android:inputType="numberDecimal"
+        android:importantForAutofill="no"
+        android:hint="@string/enter_value" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/value_edit_text"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:text="@string/save" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/value_edit_text"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentEnd="true"
+        android:text="@string/cancel"
+        android:onClick="finish"/>
+
+</RelativeLayout>

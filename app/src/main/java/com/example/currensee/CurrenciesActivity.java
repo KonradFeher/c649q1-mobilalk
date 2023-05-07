@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -22,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,7 +120,21 @@ public class CurrenciesActivity extends AppCompatActivity {
 
 
     public void editCurrency(String abbr) {
-        Log.i(LOG_TAG, "editCurrency called for Currency:" + abbr);
+        collectionRef
+                .whereEqualTo("abbreviation", abbr)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                        Currency c = document.toObject(Currency.class);
+                        Intent intent = new Intent(this, CurrencyFormActivity.class);
+                        intent.putExtra("currency", c);
+                        startActivity(intent);
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Log.e(LOG_TAG, "Failed to edit currency document with abbreviation: " + abbr, e);
+                    Toast.makeText(this, "An error occurred...", Toast.LENGTH_SHORT).show();
+                });
     }
 
     public void deleteCurrency(String abbr) {
@@ -142,8 +158,11 @@ public class CurrenciesActivity extends AppCompatActivity {
                     Log.e(LOG_TAG, "Failed to delete currency document with abbreviation: " + abbr, e);
                     Toast.makeText(this, "An error occurred...", Toast.LENGTH_SHORT).show();
                 });
-        Log.i(LOG_TAG, "deleteCurrency called for Currency:" + abbr);
-
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        this.queryData();
+    }
 }

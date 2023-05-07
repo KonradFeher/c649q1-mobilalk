@@ -14,7 +14,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -120,7 +119,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
             fullNameText.setText(curr.getFullName());
             abbreviationText.setText(curr.getAbbreviation());
             symbolText.setText(curr.getSymbol());
-            valueText.setText("1 " + curr.getAbbreviation() + " = " + String.format(Locale.ROOT, "%.2f ", curr.getRelativeValue()) + "EUR");
+            valueText.setText("1 " + curr.getAbbreviation() + " = " + String.format(Locale.ROOT, "%.4f ", curr.getValue()) + "EUR");
             updatedAtText.setText(new SimpleDateFormat("HH:mm MM-dd", Locale.ROOT).format(curr.getUpdatedAt()));
         }
     }

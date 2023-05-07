@@ -12,6 +12,9 @@
         android:theme="@style/Theme.CurrenSee"
         tools:targetApi="31">
         <activity
+            android:name=".CurrencyFormActivity"
+            android:exported="false" />
+        <activity
             android:name=".CurrenciesActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false" />
